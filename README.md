@@ -1,22 +1,21 @@
-# Welcome ITZFIZZ: Scroll-Driven Hero
+# ITZ FIZZ — Scroll-driven hero
 
-Recreation of the [car scroll animation](https://paraschaturvedi.github.io/car-scroll-animation) hero.
-
-**Stack:** HTML, CSS, JavaScript, Next.js (static export), React, Tailwind CSS, GSAP + ScrollTrigger.
-
-## How it works
-- **Intro (time-based, once):** letters stagger in, car fades down into place, stat cards reveal one by one and count up.
-- **Scroll (progress-based):** the hero is pinned for 250% of the viewport height. A single GSAP timeline bound to scroll (`scrub: 1`) drives the car down and scales it up, spreads the headline letters, and fades the stats out. `scrub: 1` adds 1s of smoothing so the motion eases toward the scroll position.
-- **Performance:** only `transform` and `opacity` are animated, no layout reads per scroll event (ScrollTrigger batches them), `will-change` hints, and `prefers-reduced-motion` disables the scroll animation.
+A responsive React + Vite landing page with GSAP intro reveals and scroll-scrubbed hero motion. The car is an original inline SVG illustration, so no external image asset is required.
 
 ## Run locally
+
 ```bash
 npm install
-npm run dev      # http://localhost:3000
+npm run dev
 ```
 
-## Deploy (GitHub Pages)
-1. Push to a GitHub repo on the `main` branch.
-2. Repo Settings > Pages > Source: **GitHub Actions**.
-3. The workflow in `.github/workflows/deploy.yml` builds and publishes `out/`.
-Live URL: `https://<username>.github.io/<repo-name>/`
+Open the local URL printed by Vite. Production build: `npm run build`.
+
+## Deploy
+
+For GitHub Pages, push this repository and enable Pages with GitHub Actions (Vite build) or deploy the `dist/` directory. For Vercel/Netlify, import the repository; build command `npm run build`, output directory `dist`.
+
+## Notes
+- GSAP ScrollTrigger ties car position, scale, rotation, sun and road movement to scroll progress.
+- Responsive navigation toggle and anchor links are functional.
+- Honors reduced-motion preference for native smooth scrolling; GSAP motion remains scroll-controlled.
