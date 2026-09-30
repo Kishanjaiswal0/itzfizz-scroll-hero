@@ -1,11 +1,634 @@
+/* ==========================================================================
+   1. FONTS & TAILWIND DIRECTIVES
+   ========================================================================== */
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
-@tailwind base; @tailwind components; @tailwind utilities;
-:root{font-family:Manrope, sans-serif;color:#202326;background:#f4f2ec;font-synthesis:none}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0}a{color:inherit;text-decoration:none}button{font:inherit}.topbar{height:82px;padding:0 6.5%;display:flex;align-items:center;justify-content:space-between;position:absolute;top:0;left:0;width:100%;z-index:20}.brand{font-weight:800;letter-spacing:.13em;font-size:15px;display:flex;align-items:center;gap:9px}.brand-mark{font-size:24px;color:#f16b2d}.nav{display:flex;align-items:center;gap:38px;font-size:12px;font-weight:700}.nav a:not(.nav-cta){opacity:.72}.nav-cta{border:1px solid #292b2c;border-radius:40px;padding:12px 18px}.nav-cta span{margin-left:15px}.menu-btn{display:none;background:none;border:0;font-size:23px}.hero{height:100svh;min-height:680px;position:relative;overflow:hidden;padding:140px 8% 45px;background:#f4f2ec;display:flex;flex-direction:column;justify-content:space-between}.hero-copy{position:relative;z-index:4}.eyebrow,.journey-top,.story-head>span,.story-card>span,.vertical-label,.scroll-cue,.journey-caption p,footer>span,footer>a:last-child{font:10px 'DM Mono',monospace;letter-spacing:.12em}.eyebrow{margin:0 0 28px;color:#686963}.eyebrow span{color:#f16b2d;margin-left:8px}h1{font-size:clamp(48px,8.5vw,126px);line-height:.94;letter-spacing:-.085em;margin:0;font-weight:800;position:relative;z-index:3}h1 span{display:block;white-space:nowrap}h1 .second{margin-left:9vw}h1 i{font-style:normal;color:#f16b2d}.hero-note{font-size:13px;line-height:1.7;margin:25px 0 0 9vw;color:#666761}.hero-bottom{display:flex;justify-content:space-between;align-items:flex-end;position:relative;z-index:5}.metrics{display:flex;gap:clamp(25px,5.4vw,85px)}.metric strong{font-size:clamp(27px,3.2vw,44px);letter-spacing:-.07em;line-height:1;font-weight:700}.metric strong span{font-size:.48em;color:#f16b2d;vertical-align:top;margin-left:2px}.metric p{font-size:10px;line-height:1.6;color:#777871;margin:9px 0 0}.scroll-cue{display:flex;align-items:center;gap:12px;color:#656660;font-size:9px}.scroll-dot{height:28px;width:18px;border:1px solid #aaa;border-radius:12px;position:relative}.scroll-dot:after{content:'';position:absolute;width:3px;height:5px;border-radius:5px;background:#f16b2d;top:5px;left:6px}.sun-orb{position:absolute;width:clamp(270px,36vw,520px);aspect-ratio:1;border-radius:50%;background:#f8d9a7;right:13%;top:20%;z-index:1;opacity:.8}.hero-art{position:absolute;width:min(66vw,900px);right:2%;top:32%;z-index:2;will-change:transform}.car-art{width:100%;overflow:visible}.vertical-label{position:absolute;right:2.5%;top:48%;writing-mode:vertical-rl;z-index:4;color:#9b9b92;font-size:9px}.journey{height:150vh;min-height:1000px;background:#202326;color:#f4f2ec;position:relative;overflow:hidden;padding:55px 8%}.journey-top{display:flex;justify-content:space-between;color:#b5b5ad}.road{position:absolute;left:-5%;right:-5%;top:38%;height:190px;background:#34383a;transform:rotate(-8deg);overflow:hidden;border-top:1px solid #505456;border-bottom:1px solid #505456}.road-line{position:absolute;top:50%;width:150%;border-top:3px dashed #e2d6bd;opacity:.7;will-change:transform}.road-label{position:absolute;right:13%;top:35%;font:10px 'DM Mono';letter-spacing:.12em;color:#f3a15d}.road-label span{font-size:20px;margin-left:20px}.journey-caption{position:absolute;left:12%;bottom:14%;display:flex;align-items:flex-end;gap:12vw}.journey-caption h2,.story-head h2{font-size:clamp(56px,8vw,112px);line-height:.94;letter-spacing:-.08em;margin:0}.journey-caption h2 em,.story-head h2 em{font-style:normal;color:#f16b2d}.journey-caption p{max-width:230px;line-height:1.9;color:#b5b5ad;letter-spacing:0;font-size:12px}.story{padding:110px 8% 30px;background:#f4f2ec}.story-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:65px}.story-head>span{margin-top:12px;color:#777}.story-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.story-card{min-height:330px;padding:28px;display:flex;flex-direction:column;position:relative;overflow:hidden}.story-card.orange{background:#f16b2d;color:#211f1d}.story-card.dark{background:#25292b;color:#f4f2ec}.story-card.pale{background:#e5e1d7;color:#202326}.story-card>span{font-size:9px;opacity:.7}.card-icon{font-size:30px;margin-top:45px}.story-card h3{font-size:32px;line-height:1.03;letter-spacing:-.06em;margin:10px 0}.story-card p{font-size:12px;line-height:1.6;max-width:220px;opacity:.7;margin-top:auto}footer{border-top:1px solid #d7d5cd;margin-top:100px;padding:24px 0 10px;display:flex;justify-content:space-between;align-items:center}footer>span,footer>a:last-child{font-size:9px;color:#777}
-@media(max-width:700px){.topbar{height:70px;padding:0 6%}.menu-btn{display:block;z-index:2}.nav{display:none;position:absolute;top:65px;right:5%;background:#fff;padding:22px;box-shadow:0 12px 35px #0002;flex-direction:column;gap:20px;align-items:flex-start}.nav.open{display:flex}.hero{min-height:720px;padding:125px 6% 35px}h1{font-size:clamp(43px,11vw,76px)}h1 .second{margin-left:4vw}.hero-note{margin-left:4vw}.hero-art{width:112vw;right:-19%;top:38%}.sun-orb{width:70vw;right:5%;top:34%}.vertical-label{display:none}.hero-bottom{display:block}.metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:23px 35px}.metric strong{font-size:34px}.scroll-cue{margin-top:25px}.journey{min-height:850px;height:120vh;padding:35px 6%}.journey-top{font-size:8px}.road{top:38%;height:140px}.journey-caption{left:8%;bottom:12%;display:block}.journey-caption h2{font-size:70px}.journey-caption p{margin-top:28px}.story{padding:75px 6% 25px}.story-head{display:block;margin-bottom:40px}.story-head h2{font-size:72px;margin-top:30px}.story-grid{grid-template-columns:1fr}.story-card{min-height:270px}.card-icon{margin-top:25px}footer{margin-top:65px;gap:15px;flex-wrap:wrap}footer>span{display:none}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-.hero-art{z-index:3;top:34%;}
-/* The car transitions onto the original diagonal road in the journey section. */
-.road{isolation:isolate}
-.road-car{position:absolute;z-index:3;left:0;top:-65px;width:min(48vw,560px);opacity:0;will-change:transform,opacity;pointer-events:none}
-.road-car .car-art{display:block;width:100%;height:auto;overflow:visible}
-@media(max-width:700px){.hero-art{top:39%}.road-car{top:-10px;width:78vw}}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   2. GLOBAL RESETS & ROOT VARIABLES
+   ========================================================================== */
+:root {
+  font-family: 'Manrope', sans-serif;
+  color: #202326;
+  background: #f4f2ec;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+/* Monospace micro-typography shared across labels and metadata */
+.eyebrow,
+.journey-top,
+.story-head > span,
+.story-card > span,
+.vertical-label,
+.scroll-cue,
+.journey-caption p,
+footer > span,
+footer > a:last-child {
+  font: 10px 'DM Mono', monospace;
+  letter-spacing: 0.12em;
+}
+
+/* ==========================================================================
+   3. HEADER / TOPBAR NAVIGATION
+   ========================================================================== */
+.topbar {
+  height: 82px;
+  padding: 0 6.5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 20;
+}
+
+.brand {
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.brand-mark {
+  font-size: 24px;
+  color: #f16b2d;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 38px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.nav a:not(.nav-cta) {
+  opacity: 0.72;
+}
+
+.nav-cta {
+  border: 1px solid #292b2c;
+  border-radius: 40px;
+  padding: 12px 18px;
+}
+
+.nav-cta span {
+  margin-left: 15px;
+}
+
+.menu-btn {
+  display: none;
+  background: none;
+  border: 0;
+  font-size: 23px;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   4. HERO SECTION & SUN ORB
+   ========================================================================== */
+.hero {
+  height: 100svh;
+  min-height: 680px;
+  position: relative;
+  overflow: hidden;
+  padding: 140px 8% 45px;
+  background: #f4f2ec;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 4;
+}
+
+.eyebrow {
+  margin: 0 0 28px;
+  color: #686963;
+}
+
+.eyebrow span {
+  color: #f16b2d;
+  margin-left: 8px;
+}
+
+h1 {
+  font-size: clamp(48px, 8.5vw, 126px);
+  line-height: 0.94;
+  letter-spacing: -0.085em;
+  margin: 0;
+  font-weight: 800;
+  position: relative;
+  z-index: 3;
+}
+
+h1 span {
+  display: block;
+  white-space: nowrap;
+}
+
+h1 .second {
+  margin-left: 9vw;
+}
+
+h1 i {
+  font-style: normal;
+  color: #f16b2d;
+}
+
+.hero-note {
+  font-size: 13px;
+  line-height: 1.7;
+  margin: 25px 0 0 9vw;
+  color: #666761;
+}
+
+.sun-orb {
+  position: absolute;
+  width: clamp(270px, 36vw, 520px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #f8d9a7;
+  right: 13%;
+  top: 20%;
+  z-index: 1;
+  opacity: 0.8;
+}
+
+.hero-art {
+  position: absolute;
+  width: min(66vw, 900px);
+  right: 2%;
+  top: 34%;
+  z-index: 3;
+  will-change: transform;
+}
+
+.car-art {
+  width: 100%;
+  overflow: visible;
+}
+
+.vertical-label {
+  position: absolute;
+  right: 2.5%;
+  top: 48%;
+  writing-mode: vertical-rl;
+  z-index: 4;
+  color: #9b9b92;
+  font-size: 9px;
+}
+
+/* ==========================================================================
+   5. METRICS & SCROLL CUE
+   ========================================================================== */
+.hero-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+  z-index: 5;
+}
+
+.metrics {
+  display: flex;
+  gap: clamp(25px, 5.4vw, 85px);
+}
+
+.metric strong {
+  font-size: clamp(27px, 3.2vw, 44px);
+  letter-spacing: -0.07em;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.metric strong span {
+  font-size: 0.48em;
+  color: #f16b2d;
+  vertical-align: top;
+  margin-left: 2px;
+}
+
+.metric p {
+  font-size: 10px;
+  line-height: 1.6;
+  color: #777871;
+  margin: 9px 0 0;
+}
+
+.scroll-cue {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #656660;
+  font-size: 9px;
+}
+
+.scroll-dot {
+  height: 28px;
+  width: 18px;
+  border: 1px solid #aaa;
+  border-radius: 12px;
+  position: relative;
+}
+
+.scroll-dot::after {
+  content: '';
+  position: absolute;
+  width: 3px;
+  height: 5px;
+  border-radius: 5px;
+  background: #f16b2d;
+  top: 5px;
+  left: 6px;
+}
+
+/* ==========================================================================
+   6. JOURNEY SECTION & DIAGONAL HIGHWAY
+   ========================================================================== */
+.journey {
+  height: 150vh;
+  min-height: 1000px;
+  background: #202326;
+  color: #f4f2ec;
+  position: relative;
+  overflow: hidden;
+  padding: 55px 8%;
+}
+
+.journey-top {
+  display: flex;
+  justify-content: space-between;
+  color: #b5b5ad;
+}
+
+.road {
+  position: absolute;
+  left: -5%;
+  right: -5%;
+  top: 38%;
+  height: 190px;
+  background: #34383a;
+  transform: rotate(-8deg);
+  overflow: hidden;
+  border-top: 1px solid #505456;
+  border-bottom: 1px solid #505456;
+  isolation: isolate;
+}
+
+.road-line {
+  position: absolute;
+  top: 50%;
+  width: 150%;
+  border-top: 3px dashed #e2d6bd;
+  opacity: 0.7;
+  will-change: transform;
+}
+
+.road-label {
+  position: absolute;
+  right: 13%;
+  top: 35%;
+  font: 10px 'DM Mono', monospace;
+  letter-spacing: 0.12em;
+  color: #f3a15d;
+}
+
+.road-label span {
+  font-size: 20px;
+  margin-left: 20px;
+}
+
+/* ==========================================================================
+   7. PASSING ROAD CAR (JOURNEY SECTION)
+   ========================================================================== */
+.road-car {
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  top: -65px;
+  width: min(48vw, 560px);
+  opacity: 0;
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+
+.road-car .car-art {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.journey-caption {
+  position: absolute;
+  left: 12%;
+  bottom: 14%;
+  display: flex;
+  align-items: flex-end;
+  gap: 12vw;
+}
+
+.journey-caption h2,
+.story-head h2 {
+  font-size: clamp(56px, 8vw, 112px);
+  line-height: 0.94;
+  letter-spacing: -0.08em;
+  margin: 0;
+}
+
+.journey-caption h2 em,
+.story-head h2 em {
+  font-style: normal;
+  color: #f16b2d;
+}
+
+.journey-caption p {
+  max-width: 230px;
+  line-height: 1.9;
+  color: #b5b5ad;
+  letter-spacing: 0;
+  font-size: 12px;
+}
+
+/* ==========================================================================
+   8. IMPACT STORY CARDS & FOOTER
+   ========================================================================== */
+.story {
+  padding: 110px 8% 30px;
+  background: #f4f2ec;
+}
+
+.story-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 65px;
+}
+
+.story-head > span {
+  margin-top: 12px;
+  color: #777;
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.story-card {
+  min-height: 330px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.story-card.orange {
+  background: #f16b2d;
+  color: #211f1d;
+}
+
+.story-card.dark {
+  background: #25292b;
+  color: #f4f2ec;
+}
+
+.story-card.pale {
+  background: #e5e1d7;
+  color: #202326;
+}
+
+.story-card > span {
+  font-size: 9px;
+  opacity: 0.7;
+}
+
+.card-icon {
+  font-size: 30px;
+  margin-top: 45px;
+}
+
+.story-card h3 {
+  font-size: 32px;
+  line-height: 1.03;
+  letter-spacing: -0.06em;
+  margin: 10px 0;
+}
+
+.story-card p {
+  font-size: 12px;
+  line-height: 1.6;
+  max-width: 220px;
+  opacity: 0.7;
+  margin-top: auto;
+}
+
+footer {
+  border-top: 1px solid #d7d5cd;
+  margin-top: 100px;
+  padding: 24px 0 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer > span,
+footer > a:last-child {
+  font-size: 9px;
+  color: #777;
+}
+
+/* ==========================================================================
+   9. RESPONSIVE DESIGN (MOBILE BREAKPOINT <= 700PX)
+   ========================================================================== */
+@media (max-width: 700px) {
+  .topbar {
+    height: 70px;
+    padding: 0 6%;
+  }
+
+  .menu-btn {
+    display: block;
+    z-index: 2;
+  }
+
+  .nav {
+    display: none;
+    position: absolute;
+    top: 65px;
+    right: 5%;
+    background: #fff;
+    padding: 22px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .nav.open {
+    display: flex;
+  }
+
+  .hero {
+    min-height: 720px;
+    padding: 125px 6% 35px;
+  }
+
+  h1 {
+    font-size: clamp(43px, 11vw, 76px);
+  }
+
+  h1 .second {
+    margin-left: 4vw;
+  }
+
+  .hero-note {
+    margin-left: 4vw;
+  }
+
+  .hero-art {
+    width: 112vw;
+    right: -19%;
+    top: 39%;
+  }
+
+  .sun-orb {
+    width: 70vw;
+    right: 5%;
+    top: 34%;
+  }
+
+  .vertical-label {
+    display: none;
+  }
+
+  .hero-bottom {
+    display: block;
+  }
+
+  .metrics {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 23px 35px;
+  }
+
+  .metric strong {
+    font-size: 34px;
+  }
+
+  .scroll-cue {
+    margin-top: 25px;
+  }
+
+  .journey {
+    min-height: 850px;
+    height: 120vh;
+    padding: 35px 6%;
+  }
+
+  .journey-top {
+    font-size: 8px;
+  }
+
+  .road {
+    top: 38%;
+    height: 140px;
+  }
+
+  .road-car {
+    top: -10px;
+    width: 78vw;
+  }
+
+  .journey-caption {
+    left: 8%;
+    bottom: 12%;
+    display: block;
+  }
+
+  .journey-caption h2 {
+    font-size: 70px;
+  }
+
+  .journey-caption p {
+    margin-top: 28px;
+  }
+
+  .story {
+    padding: 75px 6% 25px;
+  }
+
+  .story-head {
+    display: block;
+    margin-bottom: 40px;
+  }
+
+  .story-head h2 {
+    font-size: 72px;
+    margin-top: 30px;
+  }
+
+  .story-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .story-card {
+    min-height: 270px;
+  }
+
+  .card-icon {
+    margin-top: 25px;
+  }
+
+  footer {
+    margin-top: 65px;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  footer > span {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   10. ACCESSIBILITY (PREFERS-REDUCED-MOTION)
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
