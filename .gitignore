@@ -1,8 +1,23 @@
-﻿node_modules/
+# Dependencies
+node_modules/
+
+# Production build output
 dist/
 dist-ssr/
+
+# Environment and secrets
 .env
 .env.local
+.env.*.local
+
+# Editor / OS files
 .DS_Store
 Thumbs.db
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Backup directory
 _backup_final_source/
